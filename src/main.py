@@ -8,14 +8,13 @@ from mediapipe.tasks import python
 from mediapipe.tasks.python import vision
 
 
-def model_path_exists():
+def model_path_exists() -> Optional[str]:
     '''
     This function ensures that the path to the config file exists.
     The config file holds the path to the model.
     '''
     base_path = Path.cwd()
     model_path = Path.joinpath(base_path,"config.json")
-
     if model_path.exists():
         return model_path
     else:
@@ -32,7 +31,6 @@ def get_model_path() -> Optional[str]:
     if not model_path:
         return None
     else:
-        print(model_path)
         with open(model_path, 'r') as file:
             model_file = json.load(file)
         model = model_file["Path_To_Model"]
