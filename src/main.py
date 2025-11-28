@@ -63,11 +63,11 @@ def print_result(result: GestureRecognizerResult, output_image: mp.Image, timest
     
     annotated_image = output_image.numpy_view().copy()
     latest_annotated_frame = cv2.cvtColor(annotated_image, cv2.COLOR_RGB2BGR)
-    
+
 
 
 def main(model_path):
-    
+    global latest_annotated_frame
     options = GestureRecognizerOptions(
     base_options=BaseOptions(model_asset_path=model_path),
     running_mode=VisionRunningMode.LIVE_STREAM,
@@ -84,6 +84,12 @@ def main(model_path):
             key = cv2.waitKey(1)
             if key == 27:
                 break
+            
+            if latest_annotated_frame is not None:
+                cv2.imshow('video', latest_annotated_frame)
+            else:
+                cv2.imshow('video',frame)
+
 
         cam.release()
         cv2.destroyAllWindows()
