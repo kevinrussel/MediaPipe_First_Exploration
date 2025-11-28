@@ -55,7 +55,7 @@ def get_model_path() -> Optional[str]:
 def print_result(result: GestureRecognizerResult, output_image: mp.Image, timestamp_ms: int):
     
     global latest_annotated_frame
-    print('gesture recognition result: {}'.format(result))
+    
     # Convert mp.Image (RGB) → numpy array
     
     if output_image is None:
