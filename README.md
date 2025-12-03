@@ -7,3 +7,5 @@ This repo is the exploration of the Google MediaPipe. I learnt about this repo l
 The main goal is to get the live stream hand gesture estimation up and running, although AI isn't my strong suit, I think something as simple as this will be easy ( I say easy now but I wonder what will actually happen lol)
 
 Anyway let's get to it.
+
+Not too bad so far. 
